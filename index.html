@@ -15,6 +15,8 @@
   --accent:#4f8ef7;
   --accent-dim:rgba(79,142,247,.12);
   --green:#3dd68c;
+  --yellow:#f5c542;
+  --pink:#f76fa1;
   --text:#e2e2e2;
   --muted:#777;
   --faint:#444;
@@ -42,9 +44,7 @@ section#digest{max-width:100%;padding:80px 0 0}
 h1.hero-name{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:8px}
 h1.hero-name span{color:var(--accent)}
 .hero-en{font-size:clamp(1rem,2vw,1.4rem);color:var(--muted);font-weight:400;margin-bottom:20px;letter-spacing:.02em}
-.hero-bio{font-size:1.1rem;color:var(--muted);max-width:480px;margin-bottom:36px;line-height:1.8}
-.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
-.tag{background:var(--surface2);border:1px solid var(--border);color:var(--muted);padding:5px 14px;border-radius:20px;font-size:13px}
+.hero-bio{font-size:1.05rem;color:var(--muted);max-width:520px;margin-bottom:36px;line-height:1.9}
 .hero-links{display:flex;gap:14px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:var(--r);font-size:14px;font-weight:500;text-decoration:none;transition:.2s;cursor:pointer;border:none}
 .btn-primary{background:var(--accent);color:#fff}
@@ -52,16 +52,49 @@ h1.hero-name span{color:var(--accent)}
 .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border)}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 
+/* ── SECTION HEADER ── */
+.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:12px}
+.section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;margin-bottom:40px;letter-spacing:-.02em}
+
 /* ── ABOUT ── */
 #about{display:flex;flex-direction:column;justify-content:center}
-.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:16px}
-.section-title{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;margin-bottom:32px;letter-spacing:-.02em}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.about-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px}
-.about-card h3{font-size:14px;font-weight:600;color:var(--accent);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em}
-.about-card p{color:var(--muted);font-size:14px;line-height:1.7}
-.skill-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-.skill{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:4px 12px;border-radius:6px;font-size:13px}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.about-left{}
+.about-intro{color:var(--muted);font-size:14.5px;line-height:1.85;margin-bottom:24px}
+.about-info-list{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.about-info-item{display:flex;align-items:center;gap:12px;font-size:14px}
+.about-info-item .info-label{color:var(--faint);min-width:56px;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.about-info-item .info-val{color:var(--text)}
+.about-right{display:flex;flex-direction:column;gap:20px}
+
+.skill-block{}
+.skill-block-title{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin-bottom:10px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tag{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:4px 12px;border-radius:6px;font-size:13px;transition:.18s}
+.skill-tag:hover{border-color:var(--accent);color:var(--accent)}
+
+.hobby-list{display:flex;flex-wrap:wrap;gap:10px}
+.hobby-item{display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);padding:6px 14px;border-radius:20px;font-size:13px;color:var(--muted)}
+.hobby-item span{font-size:15px}
+
+/* ── PROJECTS ── */
+#projects{display:flex;flex-direction:column;justify-content:center}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:.2s;cursor:pointer;text-decoration:none;color:inherit}
+.project-card:hover{border-color:var(--accent);transform:translateY(-2px);background:var(--surface2)}
+.project-card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.project-icon{font-size:28px;line-height:1}
+.project-status{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.status-active{background:rgba(61,214,140,.12);color:var(--green)}
+.status-wip{background:rgba(245,197,66,.12);color:var(--yellow)}
+.project-name{font-size:16px;font-weight:700;color:var(--text);letter-spacing:-.01em}
+.project-desc{font-size:13.5px;color:var(--muted);line-height:1.7}
+.project-tags{display:flex;flex-wrap:wrap;gap:6px}
+.project-tag{font-size:11.5px;background:var(--surface2);border:1px solid var(--border);color:var(--faint);padding:2px 10px;border-radius:4px}
+.project-footer{display:flex;align-items:center;justify-content:space-between;margin-top:4px}
+.project-link{font-size:12.5px;color:var(--accent);display:flex;align-items:center;gap:4px}
+.project-arrow{color:var(--faint);font-size:16px;transition:.2s}
+.project-card:hover .project-arrow{color:var(--accent);transform:translateX(3px)}
 
 /* ── DIGEST MODULE ── */
 #digest{background:var(--surface);border-top:1px solid var(--border)}
@@ -76,7 +109,6 @@ h1.hero-name span{color:var(--accent)}
 .digest-meta{display:flex;align-items:center;gap:12px;margin-bottom:32px;flex-wrap:wrap}
 .digest-meta-date{font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-dim);padding:4px 12px;border-radius:20px}
 .digest-meta-gen{font-size:12px;color:var(--faint)}
-/* markdown 渲染 */
 .md h1,.md h2,.md h3{color:#f0f0f0;margin-top:2em;margin-bottom:.6em;line-height:1.35;font-weight:700}
 .md h1{font-size:1.7em;margin-top:0}
 .md h2{font-size:1.3em;border-bottom:1px solid var(--border);padding-bottom:.3em}
@@ -104,7 +136,7 @@ footer{text-align:center;padding:40px 20px;color:var(--faint);font-size:13px;bor
 @media(max-width:768px){
   nav{padding:0 16px;gap:16px}
   section{padding:80px 16px 40px}
-  .about-grid{grid-template-columns:1fr}
+  .about-layout{grid-template-columns:1fr}
   .digest-inner{grid-template-columns:1fr;padding:32px 16px}
   .digest-sidebar{border-right:none;border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:24px}
   .digest-dates{display:flex;flex-wrap:wrap;gap:8px;padding:0}
@@ -122,6 +154,7 @@ footer{text-align:center;padding:40px 20px;color:var(--faint);font-size:13px;bor
   <div class="nav-links">
     <a href="#home" class="active">首页</a>
     <a href="#about">关于</a>
+    <a href="#projects">项目</a>
     <a href="#digest">AI 日报</a>
   </div>
 </nav>
@@ -134,19 +167,17 @@ footer{text-align:center;padding:40px 20px;color:var(--faint);font-size:13px;bor
   </div>
   <h1 class="hero-name">郝周彦<br><span>Hugh</span></h1>
   <div class="hero-en">Backend Developer & Terminal Enthusiast</div>
-  <p class="hero-bio">热爱生活的脱脂牛马 🐮<br>专注后端开发与终端管理，构建简洁高效的系统。</p>
-  <div class="hero-tags">
-    <span class="tag">后端开发</span>
-    <span class="tag">终端管理</span>
-    <span class="tag">系统架构</span>
-    <span class="tag">AI 爱好者</span>
-  </div>
+  <p class="hero-bio">
+    热爱生活的脱脂牛马 🐮<br>
+    专注后端开发与终端管理自动化。<br>
+    关注 AI 动态，不断探索 AI 工具对工程效率的提升。
+  </p>
   <div class="hero-links">
-    <a href="https://github.com/hzy" target="_blank" class="btn btn-primary">
+    <a href="https://github.com/hugh-max" target="_blank" class="btn btn-primary">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
       GitHub
     </a>
-    <a href="#digest" class="btn btn-ghost">🤖 AI 日报</a>
+    <a href="#projects" class="btn btn-ghost">🚀 我的项目</a>
   </div>
 </section>
 
@@ -154,32 +185,107 @@ footer{text-align:center;padding:40px 20px;color:var(--faint);font-size:13px;bor
 <section id="about">
   <div class="section-label">About</div>
   <div class="section-title">关于我</div>
-  <div class="about-grid">
-    <div class="about-card">
-      <h3>📌 简介</h3>
-      <p>后端开发工程师，专注于构建高性能、高可用的服务端系统。热爱探索新技术，享受用代码解决实际问题的过程。</p>
-    </div>
-    <div class="about-card">
-      <h3>⚙️ 技术栈</h3>
-      <div class="skill-list">
-        <span class="skill">Go</span>
-        <span class="skill">Python</span>
-        <span class="skill">Java</span>
-        <span class="skill">MySQL</span>
-        <span class="skill">Redis</span>
-        <span class="skill">Kubernetes</span>
-        <span class="skill">Linux</span>
-        <span class="skill">Docker</span>
+  <div class="about-layout">
+    <!-- 左侧：基本信息 -->
+    <div class="about-left">
+      <p class="about-intro">
+        后端开发工程师，常用技术栈：Go、Python、Shell。喜欢将重复的工作自动化。<br><br>
+        不断探索如何把 AI 能力真正嵌入工程流程。目前在用 AI Agent 做一些个人小项目。
+      </p>
+      <div class="about-info-list">
+        <div class="about-info-item">
+          <span class="info-label">身份</span>
+          <span class="info-val">后端开发工程师</span>
+        </div>
+        <div class="about-info-item">
+          <span class="info-label">地点</span>
+          <span class="info-val">中国-上海&苏州</span>
+        </div>
+        <div class="about-info-item">
+          <span class="info-label">GitHub</span>
+          <span class="info-val"><a href="https://github.com/hugh-max" target="_blank" style="color:var(--accent);text-decoration:none">@hugh-max</a></span>
+        </div>
+      </div>
+      <div class="hobby-list">
+        <div class="hobby-item"><span>🏋️</span> 健身-外胚缓慢增肌中</div>
+        <div class="hobby-item"><span>📖</span> 滑雪-八顺进阶滑手</div>
+        <div class="hobby-item"><span>☕</span> 咖啡-冰山美式重度爱好者</div>
+        <div class="hobby-item"><span>🎮</span> 音乐-世界和平</div>
       </div>
     </div>
-    <div class="about-card">
-      <h3>🎯 方向</h3>
-      <p>终端管理、后端架构设计、分布式系统，以及 AI 工具在工程效率上的应用探索。</p>
+
+    <!-- 右侧：技术能力 -->
+    <div class="about-right">
+      <div class="skill-block">
+        <div class="skill-block-title">编程语言</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Go</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Shell</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">后端 & 基础设施</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">Redis</span>
+          <span class="skill-tag">Prometheus</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Linux</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">AI & 工具链</div>
+        <div class="skill-tags">
+          <span class="skill-tag">AI Agent</span>
+          <span class="skill-tag">RAG</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Dify</span>
+        </div>
+      </div>
     </div>
-    <div class="about-card">
-      <h3>🌱 当下</h3>
-      <p>热爱生活的脱脂牛马，在代码与咖啡之间寻找平衡。每天关注 AI 资讯，保持对技术趋势的敏感度。</p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <div class="section-title">我的项目</div>
+  <div class="projects-grid">
+
+    <!-- AI 日报 -->
+    <a href="#digest" class="project-card" onclick="smoothToDigest(event)">
+      <div class="project-card-header">
+        <span class="project-icon">🤖</span>
+        <span class="project-status status-active">运行中</span>
+      </div>
+      <div class="project-name">AI 技术日报</div>
+      <div class="project-desc">每日自动抓取 Hacker News、MIT Tech Review、OpenAI Blog、Google AI Blog 等来源，由 AI 筛选、总结并生成日报，每天早晨准时推送。</div>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">AI Agent</span>
+        <span class="project-tag">自动化</span>
+        <span class="project-tag">每日更新</span>
+      </div>
+      <div class="project-footer">
+        <span class="project-link">查看日报 →</span>
+        <span class="project-arrow">›</span>
+      </div>
+    </a>
+
+    <!-- 占位卡片：更多项目 -->
+    <div class="project-card" style="cursor:default;opacity:.5;pointer-events:none">
+      <div class="project-card-header">
+        <span class="project-icon">🔧</span>
+        <span class="project-status status-wip">开发中</span>
+      </div>
+      <div class="project-name">更多项目</div>
+      <div class="project-desc">持续折腾中，下一个项目已经在路上了。</div>
+      <div class="project-tags">
+        <span class="project-tag">敬请期待</span>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -218,7 +324,17 @@ window.addEventListener('scroll', () => {
   navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#'+current));
 }, {passive:true});
 
+<<<<<<< HEAD
 // ── AI 日报数据（每日构建时嵌入）──
+=======
+// ── 项目卡片跳转 ──
+function smoothToDigest(e) {
+  e.preventDefault();
+  document.getElementById('digest').scrollIntoView({behavior:'smooth'});
+}
+
+// ── AI 日报 ──
+>>>>>>> 4dd1015 (update personal page)
 const DIGEST_DATA_URL = 'https://raw.githubusercontent.com/hugh-max/hzy.github.io/main/digest/';
 
 async function loadDigest() {
