@@ -229,11 +229,7 @@ async function loadDigest() {
     renderSidebar(dates);
     if(dates.length) await loadDay(dates[0], true);
   } catch(e) {
-    // 降级到内嵌数据
-    const dates = FALLBACK.dates;
-    renderSidebar(dates);
-    if(dates.length) renderDay(FALLBACK.days[dates[0]]);
-    else showEmpty();
+    showEmpty();
   }
 }
 
@@ -259,9 +255,6 @@ async function loadDay(date, silent=false) {
   document.getElementById('digestLoading').style.display='block';
   document.getElementById('digestBody').style.display='none';
   document.getElementById('digestMeta').style.display='none';
-
-  // 先查 fallback
-  if(FALLBACK.days[date]) { renderDay(FALLBACK.days[date]); return; }
 
   try {
     const res = await fetch(DIGEST_DATA_URL + date + '.json', {cache:'no-cache'});
